@@ -1,13 +1,15 @@
+<?php session_start(); ?>
 <?php include 'layout/head.php'?>
 <?php include 'layout/encryption.php'; ?>
 
 
 <?php 
+    $username = $_SESSION['username'];
     $key = crypt_key($_GET['key'], 'd');
     if ($key == 'P@689n@hkpn355H8'){
 ?>
     <h1>Admin</h1>
-    <h3>Hello <?php echo $_GET['username'] ?></h3>
+    <h3>Hello <?php echo $username ?></h3>
     <ul>
         <li>file</li>
         <li>file</li>
