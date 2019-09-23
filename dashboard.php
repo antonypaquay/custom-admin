@@ -5,7 +5,7 @@
 
 <?php 
     $username = $_SESSION['username'];
-    $key = crypt_key($_GET['key'], 'd');
+    $key = crypt_key($_SESSION['password'], 'd');
     if ($key == 'P@689n@hkpn355H8'){
 ?>
     <h1>Admin</h1>
@@ -23,4 +23,6 @@
     }
 ?>
 
+
+<?php var_dump($_SESSION) ?>
 <?php include 'layout/end.php'?>

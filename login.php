@@ -5,15 +5,18 @@
     <?php
 
         $user = htmlspecialchars($_POST['user']);
-        $_SESSION['username'] =  $user;
         $password = htmlspecialchars($_POST['password']);
+
+        // add to the session
+        $_SESSION['username'] =  $user;
+        $_SESSION['password'] = crypt_key("$password", 'e');
 
         function login($check_user, $check_pwd)
         {
             if ($check_user == 'antony') {
 
                 if ($check_pwd == 'P@689n@hkpn355H8') {
-                    header("Location: ./dashboard.php?key=" . crypt_key("$check_pwd", 'e'), true, 301);
+                    header("Location: ./dashboard.php", true, 301);
                     exit();
                 } else {
                     $back_address = 'index.php';
