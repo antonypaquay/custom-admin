@@ -2,12 +2,12 @@
 <?php include 'layout/head.php'?>
 <?php include 'layout/encryption.php'; ?>
 
-
 <?php 
     $username = $_SESSION['username'];
-    $key = crypt_key($_SESSION['password'], 'd');
-    if ($key == 'P@689n@hkpn355H8'){
-?>
+    $password_client = $_SESSION['password_from_client'];
+    $password_db = $_SESSION['password_from_db'];
+    if ($password_client == $password_db){
+?>             
     <h1>Admin</h1>
     <h3>Hello <?php echo $username ?></h3>
     <ul>
@@ -23,6 +23,4 @@
     }
 ?>
 
-
-<?php var_dump($_SESSION) ?>
 <?php include 'layout/end.php'?>
